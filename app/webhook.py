@@ -26,7 +26,7 @@ def handle_webhook():
         answer=ask_gemini(question)
         print("Answer:", answer)
         return jsonify({
-            "fullfillmentText": answer
+            "fulfillmentText": answer
     })
 
     # Menu
