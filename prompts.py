@@ -9,6 +9,7 @@ GEMINI_MODEL = Config.GEMINI_MODEL
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def ask_gemini(question):
+   print("Question:", question)
    SYSTEM_PROMPT = """
    Hello! 👋 Welcome to FastBite Restaurant.
 
