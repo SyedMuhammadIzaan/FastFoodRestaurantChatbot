@@ -10,14 +10,14 @@ webhook_bp = Blueprint("webhook", __name__)
 def handle_webhook():
 
     data = request.get_json()
-    print("Webhook data received:", data)
+    # print("Webhook data received:", data)
 
     query_result = data.get("queryResult", {})
 
     # Get intent name
     intent = query_result.get("intent", {}).get("displayName")
 
-    print("Intent:", intent)
+    # print("Intent:", intent)
 
     # Greeting
     if intent == "Welcome":

@@ -163,9 +163,9 @@ Your goal is to provide accurate, restaurant-specific customer support using onl
 
 """
    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=question,
-        context=SYSTEM_PROMPT,
-    )
+      model=GEMINI_MODEL,
+      contents=question,
+      context=SYSTEM_PROMPT,
+   )
    print("Response Value for GEMINI_MODEL:", response.text)
    return response.text
