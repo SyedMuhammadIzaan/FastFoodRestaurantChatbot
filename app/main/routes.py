@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, render_template, request
 from app.services.order import createOrder,updateOrder,getAllOrders,getOrderById,deleteOrder
-from app.services.menu import createMenu,updateMenu,deleteMenu,getAllMenu
+from app.services.menu import createMenu, getMenuById,updateMenu,deleteMenu,getAllMenu
 from app.services.category import createCategory, getAllCategories,updateCategory,deleteCategory
 
 main_bp=Blueprint('main',__name__)
@@ -73,13 +73,13 @@ def modifyMenu(menuId):
     else:
         return jsonify({'error':'Failed to update menu'}),400
 
-# @main_bp.route('/menu/<int:menuId>',methods=['GET'])
-# def getMenu(menuId):
-#     menu=getMenuById(menuId)
-#     if menu:
-#         return jsonify(menu),200
-#     else:
-#         return jsonify({'error':'Menu not found'}),404
+@main_bp.route('/menu/<int:menuId>',methods=['GET'])
+def getMenu(menuId):
+    menu=getMenuById(menuId)
+    if menu:
+        return jsonify(menu),200
+    else:
+        return jsonify({'error':'Menu not found'}),404
 
 @main_bp.route('/menu',methods=['GET'])
 def getMenus():

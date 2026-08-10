@@ -18,6 +18,18 @@ def createMenu(data):
     except Exception as e:
         return {"error": str(e)}
 
+def getMenuById(menuId):
+    try:
+        if not menuId:
+            return None
+        else:
+            menu=Menu.query.get(menuId)
+            if not menu:
+                return None
+            else:
+                return menu.to_dict()
+    except Exception as e:
+        return {"error": str(e)}
 
 def updateMenu(menuId,data):
     try:
