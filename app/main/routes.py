@@ -7,7 +7,9 @@ main_bp=Blueprint('main',__name__)
 
 @main_bp.route("/")
 def home():
-    return render_template("index.html")
+    menus=getAllMenu()
+    categories=getAllCategories()
+    return render_template("index.html", menus=menus, categories=categories)
 
 @main_bp.route('/order/create',methods=['POST'])
 def newOrder():
